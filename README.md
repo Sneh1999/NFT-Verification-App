@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NFT Holder Verification APP
 
-## Getting Started
+**Deployed link: https://nft-verification-app.vercel.app/**
 
-First, run the development server:
+![](https://i.imgur.com/YwjCFzh.png)
+
+
+## Getting started on dev server
+
+Before running the dev server, make sure you have [yarn](https://yarnpkg.com/) installed
+
+Run the development server using the following commands:
 
 ```bash
-npm run dev
-# or
+yarn
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Dependencies used
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- [Rainbow Kit](https://github.com/rainbow-me/rainbowkit)
+- [WAGMI](https://wagmi.sh/) 
+- [Ethers](https://docs.ethers.io/v5/)
+- [React-Toastify](https://www.npmjs.com/package/react-toastify)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Instructions to use the website
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+1. Connect your Ethereum wallet using the `Connect Wallet` button
+![](https://i.imgur.com/PsVcYBh.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Type the contract address of the NFT collection in the text box provided and then click the `Verify` button
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![](https://i.imgur.com/AlPRtDa.png)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deployed on Vercel
+
+Deployed using Next.js app using [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
