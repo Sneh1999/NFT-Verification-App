@@ -34,6 +34,13 @@
   cursor: pointer;
 }
 
+.emoji {
+  display: flex;
+  font-size: 10em;
+  justify-content: center;
+  align-items: center;
+}
+
 .input {
   width: 25em;
   height: 30px;

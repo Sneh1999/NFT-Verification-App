@@ -581,3 +581,9 @@ export const ERC721_ABI = [
     type: "receive",
   },
 ];
+
+export enum NFT_HOLDER {
+  INITIAL,
+  NON_HOLDER,
+  HOLDER,
+}

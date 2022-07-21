@@ -69,7 +69,7 @@ const Home: NextPage = () => {
                   {isLoading ? "Loading..." : "Verify!"}
                 </button>
               </div>
-              {isHolder}
+              <div className={styles.emoji}>{isHolder}</div>
             </>
           ) : null}
         </div>
