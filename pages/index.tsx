@@ -1,18 +1,19 @@
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { BigNumber, ethers } from "ethers";
+import { isAddress } from "ethers/lib/utils";
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useAccount, useProvider } from "wagmi";
 import { useEffect, useState } from "react";
-import { BigNumber, ethers } from "ethers";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useAccount, useNetwork, useProvider } from "wagmi";
 import { ERC721_ABI } from "../constants";
 import { useIsMounted } from "../hooks/useIsMounted";
-import { isAddress } from "ethers/lib/utils";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const { address, isConnected } = useAccount();
+  const { chain } = useNetwork();
   const [isHolder, setIsHolder] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [contractAddress, setContractAddress] = useState<string>("");
@@ -21,8 +22,8 @@ const Home: NextPage = () => {
   const provider = useProvider();
 
   useEffect(() => {
-    if (address) setIsHolder("");
-  }, [address]);
+    if (address || chain?.unsupported) setIsHolder("");
+  }, [address, chain]);
 
   const checkIfHolder = async () => {
     try {
@@ -56,7 +57,7 @@ const Home: NextPage = () => {
         </h1>
         <ConnectButton />
         <div>
-          {isMounted && isConnected ? (
+          {isMounted && isConnected && !chain?.unsupported ? (
             <>
               <div className={styles.form}>
                 <input
