@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useProvider } from "wagmi";
 import { useEffect, useState } from "react";
@@ -34,7 +36,8 @@ const Home: NextPage = () => {
         setIsHolder("🤲");
       }
     } catch (e) {
-      console.log(e);
+      toast.error("Provide a valid ERC721 address");
+      setIsHolder("");
     } finally {
       setIsLoading(false);
     }
@@ -47,7 +50,6 @@ const Home: NextPage = () => {
         <meta name="description" content="NFT Holder Verification App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className={styles.main}>
         <h1 className={styles.description}>
           Welcome to NFT Holder Verification App
@@ -68,6 +70,7 @@ const Home: NextPage = () => {
                 <button className={styles.button} onClick={checkIfHolder}>
                   {isLoading ? "Loading..." : "Verify!"}
                 </button>
+                <ToastContainer />
               </div>
               <div className={styles.emoji}>{isHolder}</div>
             </>
